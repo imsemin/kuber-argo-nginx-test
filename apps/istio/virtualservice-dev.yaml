@@ -19,7 +19,7 @@ spec:
 
         - destination:
 
-            host: nginx-dev-service.prod.svc.cluster.local
+            host: nginx-dev-service.dev.svc.cluster.local
 
             port:
               number: 81
