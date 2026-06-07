@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+
+metadata:
+  name: nginx-prod
+  namespace: prod
+
+spec:
+
+  hosts:
+    - prod.example.local
+
+  gateways:
+    - istio-system/nginx-gateway
+
+  http:
+
+    - route:
+
+        - destination:
+
+            host: nginx-prod-service.prod.svc.cluster.local
+
+            port:
+              number: 80
