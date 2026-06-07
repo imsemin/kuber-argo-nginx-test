@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: nginx-dev
-  namespace: dev
+  name: nginx-prod
+  namespace: prod
 
 spec:
   replicas: 1
 
   selector:
     matchLabels:
-      app: nginx-dev
+      app: nginx-prod
 
   template:
     metadata:
       labels:
-        app: nginx-dev
+        app: nginx-prod
 
     spec:
       containers:
@@ -23,22 +23,5 @@ spec:
 
           image: nginx:latest
 
-          command:
-            - /bin/sh
-            - -c
-
-          args:
-            - |
-              cat <<EOF >/etc/nginx/conf.d/default.conf
-              server {
-                listen 81;
-                location / {
-                  root /usr/share/nginx/html;
-                  index index.html;
-                }
-              }
-              EOF
-              nginx -g 'daemon off;'
-
           ports:
-            - containerPort: 81
+            - containerPort: 80
