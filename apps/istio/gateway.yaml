@@ -25,7 +25,7 @@ spec:
     - name: http
       port: 80
       targetPort:8080
-      nodePort: 3000
+      nodePort: 30000
  
   selector:
     istio: ingressgateway
